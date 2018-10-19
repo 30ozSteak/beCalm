@@ -4,16 +4,16 @@ import CategoryButton from './CategoryButton'
 
 import '../css/Main.css';
 
-const Main = () => {
+const Main = ( {processCategorySelect} ) => {
   return(
     <main>
-      <CategoryButton category='water' />
-      <CategoryButton category='sleep' />
-      <CategoryButton category='mood' />
-      <CategoryButton category='breathing' />
-      <CategoryButton category='activities' />
-      <CategoryButton category='meals' />
-      <CategoryButton category='milestones' />
+      <CategoryButton processCategorySelect={processCategorySelect} category='water' />
+      <CategoryButton processCategorySelect={processCategorySelect} category='sleep' />
+      <CategoryButton processCategorySelect={processCategorySelect} category='mood' />
+      <CategoryButton processCategorySelect={processCategorySelect} category='breathing' />
+      <CategoryButton processCategorySelect={processCategorySelect} category='activities' />
+      <CategoryButton processCategorySelect={processCategorySelect} category='meals' />
+      <CategoryButton processCategorySelect={processCategorySelect} category='milestones' />
     </main>
   )
 }

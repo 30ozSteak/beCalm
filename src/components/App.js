@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super()
     this.state ={
-
+      currentPage: 'Home'
     }
   }
 
@@ -18,11 +18,17 @@ class App extends Component {
     console.log(username, password)
   }
 
+  processCategorySelect = (name) => {
+    this.setState({
+      currentPage: name
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <Home processLogin={this.processLogin} />
-        <Main />
+        <Main processCategorySelect={this.processCategorySelect} />
       </div>
     );
   }

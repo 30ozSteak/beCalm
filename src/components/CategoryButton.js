@@ -2,9 +2,11 @@ import React from 'react';
 
 import '../css/CategoryButton.css';
 
-const CategoryButton = ({ category }) => {
+const CategoryButton = ({ category, processCategorySelect }) => {
   return (
-    <section>
+    <section className='category-button' onClick={() => {
+      processCategorySelect(category);
+    }}>
       <h3>{category}</h3>
     </section>
   );
