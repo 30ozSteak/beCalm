@@ -26,7 +26,7 @@ class Login extends Component {
       <form 
         className='login-form'
         onSubmit={(event) => {
-          this.props.processLogin(event, this.state.username, this.state.password);
+          this.props.handleLogin(event, this.state.username, this.state.password);
         }}
       >
         <input 

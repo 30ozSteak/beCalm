@@ -14,7 +14,7 @@ class App extends Component {
     super()
     this.state ={
       data: {},
-      username: 'Ingrid Morale Jones',
+      username: '',
       currentPage: 'Home',
       login: 'out',
       loginError: false
@@ -27,12 +27,21 @@ class App extends Component {
     })
   }
 
-  processLogin = (event, username, password) => {
-    event.preventDefault()
-    const user = login.accounts.find(username);
+  handleLogin = (event, email, password) => {
+    event.preventDefault();
+
+    const user = login.accounts.find((account) => {
+      return account.email === email;
+    });
+
+    let userAccount;
+
     if (password === user.pw) {
+      userAccount = data.users.find((account) => {
+        return account.email === email;
+      })
       this.setState({
-        username,
+        username: userAccount.name,
         login: 'in',
         loginError: false
       }) 
@@ -57,7 +66,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Home processLogin={this.processLogin} />
+        <Home handleLogin={this.handleLogin} />
         <Main processCategorySelect={this.processCategorySelect} />
         <Water waterSubmit={this.waterSubmit}/>
       </div>
